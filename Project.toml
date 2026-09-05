@@ -1,0 +1,33 @@
+name = "DiagrammaticHecke"
+uuid = "83c833e2-5fed-4dd8-b983-8fde33cf3900"
+version = "1.0.0"
+authors = ["Liam Rogel <rogel@mathematik.uni-kl.de>"]
+
+[deps]
+AbstractAlgebra = "c3fe647b-3220-5bb0-a1ea-a7954cac585d"
+Base64 = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
+Cairo = "159f3aea-2a34-519c-b102-8c37f9878175"
+CoxeterGroups = "670e43dd-5bed-4a23-a2c5-7c7db0ec8412"
+IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+PrecompileTools = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
+Rsvg = "c4c386cf-5103-5370-be45-f3a111cca3b8"
+
+[sources]
+CoxeterGroups = {url = "https://github.com/ulthiel/CoxeterGroups.jl"}
+
+[compat]
+AbstractAlgebra = "0.50"
+Base64 = "1"
+Cairo = "1.1"
+CoxeterGroups = "0.1"
+IJulia = "1.34.4"
+PrecompileTools = "1"
+Rsvg = "1.1"
+Test = "1"
+julia = "1.11"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
