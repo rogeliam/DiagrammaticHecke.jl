@@ -175,5 +175,4 @@ GNU General Public License, version 3 or later. The full text is in
     any later version. It is distributed WITHOUT ANY WARRANTY; see the licence
     for details.
 
-That is the licence OSCAR.jl and TensorCategories.jl use as well, so the package
-sits in the same corner of the ecosystem.
+
