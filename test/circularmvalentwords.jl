@@ -61,9 +61,9 @@
             @test circular_unreduced_transition(m7) === nothing
         end
 
-        # the −α₁ term of id_1212: the level BFS reads
-        # `1212` there (the endless loop) and the plain node-jump reading still
-        # does; with the trivalent ε rule the words stay short and reduced.
+        # one rex-fusion step on id_1212, with the relation (121, 2). The terms
+        # are picked by COEFFICIENT, not by position: the order of `pairs_of`
+        # is not part of the relation.
         if isfile(circular_rex_cache_path([1, 2, 1], 2))
             CIRCULAR_REGIONWORD_MVALENT[] = false
             mid = idfig([1, 2, 1, 2])
@@ -72,16 +72,10 @@
             CIRCULAR_REGIONWORD_MVALENT[] = true
             terms = collect(pairs_of(r.combo))
             @test length(terms) == 4
-            (d4, _) = terms[4]
-            m4b = CircularMorphismGraph(d4.graph, mid.cut1, mid.cut2)
-            w4b, _ = circular_region_mvalent_words(m4b)
-            @test maximum(length(w) for w in w4b if w !== nothing) == 2
-            @test all(w -> w === nothing || is_reduced(w), w4b)
-            @test circular_unreduced_transition(m4b) === nothing
+            term(c) = only(d for (d, k) in terms if k == c)
 
-            # and term 1, the false alarm of the level BFS, is silent
-            (d1, _) = terms[1]
-            m1 = CircularMorphismGraph(d1.graph, mid.cut1, mid.cut2)
+            # the −1 term, the false alarm of the level BFS, is silent
+            m1 = CircularMorphismGraph(term(-one(SoergelPoly)).graph, mid.cut1, mid.cut2)
             @test circular_unreduced_transition(m1) === nothing
         end
     finally

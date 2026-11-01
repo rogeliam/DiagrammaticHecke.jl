@@ -12,13 +12,15 @@
 
 import AbstractAlgebra as AA
 
+const R, (_ALPHA1, _ALPHA2, _ALPHA3) = AA.polynomial_ring(AA.QQ, [:α₁, :α₂, :α₃])
+
 """
     R
 
 The polynomial ring `QQ[α₁,α₂,α₃]`.  `zero(R)` / `one(R)` / `R(3//2)` produce
 its elements.
 """
-const R, (_ALPHA1, _ALPHA2, _ALPHA3) = AA.polynomial_ring(AA.QQ, [:α₁, :α₂, :α₃])
+R
 
 """
     SoergelPoly
